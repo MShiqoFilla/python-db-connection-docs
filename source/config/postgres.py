@@ -54,8 +54,8 @@ class PostgreService:
             connect.commit()
 
 def get_default_pg_engine():
-    engine_supabase = _create_engine(
+    engine = _create_engine(
         user=os.getenv("PG_USER"), password=os.getenv("PG_PASS"),
         dbname=os.getenv("PG_DBNM"), host=os.getenv("PG_HOST"), port=os.getenv("PG_PORT")
     )
-    return PostgreService(engine_supabase)
+    return PostgreService(engine)
