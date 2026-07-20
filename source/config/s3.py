@@ -6,12 +6,22 @@ import os
 load_dotenv()
 
 class S3Service:
+    """
+    S3 Client Instance, 
+    Must receive these kwargs:
+    ---
+        - s3_host
+        - s3_port
+        - s3_access_key
+        - s3_secret_key
+        - s3_bucket
+    """
     def __init__(self, **s3_configs):
         self.s3_host = s3_configs['s3_host']
         self.s3_port = s3_configs['s3_port']
         self.s3_access_key = s3_configs['s3_access_key']
         self.s3_secret_key = s3_configs['s3_secret_key']
-        self.s3_bucket = s3_configs['s3_bucket']
+        self.s3_bucket_name = s3_configs['s3_bucket']
 
         self.client = self.connect()
 
